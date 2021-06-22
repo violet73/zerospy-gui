@@ -1,0 +1,97 @@
+{
+    "a": {
+        "child": [
+            {
+                "b": {
+                    "child": [
+                        {
+                            "c": {
+                                "child":"",
+                                "otherInfo": {
+                                    "redmap": "xxx",
+                                    "xxx": "",
+                                    "path":"",
+                                    "line":8
+                                }
+                            }
+                        }
+                    ],
+                    "otherInfo": {
+                        "redmap": "xxx",
+                        "xxx": "",
+                        "path":"path/to/cct.json",
+                        "line":5
+                    }
+                },
+                "d": {
+                    "child": [
+                        {
+                            "b": {
+                                "child": [
+                                    {
+                                        "c": {
+                                            "child":"",
+                                            "otherInfo":""
+                                        }
+                                    }
+                                ],
+                                "otherInfo": {
+                                    "redmap": "xxx",
+                                    "xxx": "",
+                                    "path":"path/to/cct.json",
+                                    "line":29
+                                }
+                            }
+                        }
+                    ],
+                    "otherInfo": {
+                        "redmap": "xxx0",
+                        "xxx": "",
+                        "path":"path/to/cct.json",
+                        "line":26
+                    }
+                }
+            }
+        ],
+        "otherInfo": {
+            "redmap": "xxxxx000",
+            "xxx": "",
+            "path":"path/to/cct.json",
+            "line":2
+        }
+    },
+    "d": {
+        "child": [
+            {
+                "b": {
+                    "child": [
+                        {
+                            "c": {
+                                "child":"",
+                                "otherInfo": {
+                                    "redmap": "xx0",
+                                    "xxx": "",
+                                    "path":"path/to/cct.json",
+                                    "line":69
+                                }
+                            }
+                        }
+                    ],
+                    "otherInfo": {
+                        "redmap": "xxx",
+                        "xxx": "",
+                        "path":"path/to/cct.json",
+                        "line":66
+                    }
+                }
+            }
+        ],
+        "otherInfo": {
+            "redmap": "xxx",
+            "xxx": "",
+            "path":"path/to/cct.json",
+            "line":63
+        }
+    }
+}
+
