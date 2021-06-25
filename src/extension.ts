@@ -58,6 +58,29 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(provider1);
 
+	const provider4 = vscode.languages.registerFoldingRangeProvider('log', {
+
+		provideFoldingRanges(document: vscode.TextDocument, context: vscode.FoldingContext, token: vscode.CancellationToken): vscode.ProviderResult<vscode.FoldingRange[]> {
+			// console.log('====== 进入 provideFoldingRanges 方法 ======');
+			let start = -1, end = -1;
+			let result:vscode.FoldingRange[] = [];
+			for(let i = 0; i < document.lineCount; i++) {
+				let line = document.lineAt(i);
+				if(/--------------- Dumping INTEGER Redundancy Info ----------------/.test(line.text) || /--------------- Dumping Approximation Redundancy Info ----------------/.test(line.text)) {
+					start = i;
+				}
+				if(/------------ Dumping INTEGER Redundancy Info Finish -------------/.test(line.text) || /------------ Dumping Approximation Redundancy Info Finish -------------/.test(line.text)) {
+					end = i;
+					result.push(new vscode.FoldingRange(start, end));
+				}
+			}
+
+			// return all completion items as array
+			return result;
+		}
+	});
+	context.subscriptions.push(provider4);
+
 	const provider2 = vscode.languages.registerHoverProvider('log', {
 
 		provideHover(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.ProviderResult<vscode.Hover> {
