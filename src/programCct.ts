@@ -9,10 +9,10 @@ export class CctNodeProvider implements vscode.TreeDataProvider<Dependency> {
 	readonly onDidChangeTreeData: vscode.Event<Dependency | undefined | void> = this._onDidChangeTreeData.event;
     data: Dependency[];
 
-	constructor(private workspaceRoot: string) {
+	constructor(private cctRoot: string) {
         this.data = [];
 		
-        const cctJson = JSON.parse(fs.readFileSync('C:/Users/雷克伦/Desktop/三下/vscode-cct/zerospy-gui/src/cct.json', 'utf-8'));
+        const cctJson = JSON.parse(fs.readFileSync(path.join(cctRoot, 'cct.json'), 'utf-8'));
 		// this.highlight();
         Object.keys(cctJson).forEach((key) => {
             let child = cctJson[key].child;
