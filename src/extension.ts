@@ -8,7 +8,7 @@ import {CctNodeProvider, Dependency} from './programCct';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	const provider = new CctNodeProvider('./');
+	const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
 	
 	vscode.window.registerTreeDataProvider("programCct", provider);
 	vscode.commands.registerCommand('programCct.refreshEntry', () => provider.refresh());

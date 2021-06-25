@@ -38,8 +38,8 @@
 				"command": "programCct.refreshEntry",
 				"title": "Refresh",
 				"icon": {
-				  "light": "resources/light/refresh.svg",
-				  "dark": "resources/dark/refresh.svg"
+					"light": "resources/light/refresh.svg",
+					"dark": "resources/dark/refresh.svg"
 				}
 			},
 			{
@@ -48,20 +48,20 @@
 			}
 		],
 		"menus": {
-		  "view/title": [
-			{
-			  "command": "programCct.refreshEntry",
-			  "when": "view == programCct",
-			  "group": "navigation"
-			}
-		  ],
-		  "view/item/context": [
-			{
-			  "command": "programCct.openFile",
-			  "when": "view == programCct && viewItem == dependency",
-			  "group": "inline"
-			}
-		  ]
+			"view/title": [
+				{
+					"command": "programCct.refreshEntry",
+					"when": "view == programCct",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "programCct.openFile",
+					"when": "view == programCct && viewItem == dependency",
+					"group": "inline"
+				}
+			]
 		}
 	},
 	"scripts": {
