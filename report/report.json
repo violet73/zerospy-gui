@@ -83,5 +83,69 @@
         },
         "Data Centric":{
         }
+    },
+    "Thread 1 Detailed Metrics":{
+        "Code Centric":{
+            "Integer Redundant Info":{
+                "Num":1,
+                "0":{
+                    "Redundancy":"xx",
+                    "local redundancy":"xx%(xx Bytes / xx Bytes)",
+                    "Fully Redundant Zero":" xx% (xxx / xxx)",
+                    "Redmap":"[0]... [<AccessLen>]",
+                    "CCT Info":{
+
+                    }
+                }
+            },
+            "Floating Point Redundant Info":{
+                "Num":1,
+                "0":{
+                    "Redundancy":"xx",
+                    "local redundancy":"xx%(xx Zeros / xx Reads)",
+                    "Fully Redundant Zero": "xx% (xxx / xxx)",
+                    "Redmap: [mantissa | exponent | sign]":"XX | XX XX | XX XX XX XX XX XX XX",
+                    "AccessLen":8,
+                    "typesize":8,
+                    "CCT Info":{
+
+                    }
+                }
+            }
+        },
+        "Data Centric":{
+        }
+    },
+    "Thread 2 Detailed Metrics":{
+        "Code Centric":{
+            "Integer Redundant Info":{
+                "Num":1,
+                "0":{
+                    "Redundancy":"xx",
+                    "local redundancy":"xx%(xx Bytes / xx Bytes)",
+                    "Fully Redundant Zero":" xx% (xxx / xxx)",
+                    "Redmap":"[0]... [<AccessLen>]",
+                    "CCT Info":{
+
+                    }
+                }
+            },
+            "Floating Point Redundant Info":{
+                "Num":1,
+                "0":{
+                    "Redundancy":"xx",
+                    "local redundancy":"xx%(xx Zeros / xx Reads)",
+                    "Fully Redundant Zero": "xx% (xxx / xxx)",
+                    "Redmap: [mantissa | exponent | sign]":"XX | XX XX | XX XX XX XX XX XX XX",
+                    "AccessLen":8,
+                    "typesize":8,
+                    "CCT Info":{
+
+                    }
+                }
+            }
+        },
+        "Data Centric":{
+        }
     }
 }

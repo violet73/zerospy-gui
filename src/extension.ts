@@ -8,10 +8,12 @@ import {ReportJsonToMd} from './reportGenerator';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
 	const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
-	const mdGenerator = new ReportJsonToMd(path.join(context.extensionPath, 'report'));
+	let threshold = await inputRedRateThreshold();
+	const mdGenerator = new ReportJsonToMd(path.join(context.extensionPath, 'report'), threshold);
 	mdGenerator.genMetricOverview();
+	mdGenerator.genThreadDetailedMetrics();
 
 	vscode.window.registerTreeDataProvider("programCct", provider);
 	vscode.commands.registerCommand('programCct.refreshEntry', () => provider.refresh());
@@ -103,7 +105,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const provider3 = vscode.languages.registerDefinitionProvider('log', {
 
 		provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.ProviderResult<vscode.Definition> {
-			console.log('====== 进入 provideDefinition 方法 ======');
+			// console.log('====== 进入 provideDefinition 方法 ======');
 			const fileName = document.fileName;
 			const workDir = path.dirname(fileName);
 			const line = document.lineAt(position);
@@ -111,7 +113,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 			if(word === 'detail' && /Thread.*detail/.test(line.text)) {
 				let file = line.text.match(/\w+\.\w+/g);
-				console.log(file);
+				// console.log(file);
 				if(file !== null) {
 					let destPath = `${workDir}/${file[0]}`;
 					if (fs.existsSync(destPath)) {
@@ -151,6 +153,14 @@ function updateDiagnostics(document: vscode.TextDocument, collection: vscode.Dia
 	} else {
 		collection.clear();
 	}
+}
+
+async function inputRedRateThreshold() : Promise<number> {
+	let threshold = await vscode.window.showInputBox({
+	  prompt: "Please Input Redundancy Threshold:"
+	});
+  	return Number(threshold);
+	
 }
 
 // this method is called when your extension is deactivated
