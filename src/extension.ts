@@ -4,12 +4,15 @@ import * as vscode from 'vscode';
 const path = require('path');
 const fs = require('fs');
 import {CctNodeProvider, Dependency} from './programCct';
+import {ReportJsonToMd} from './reportGenerator';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
-	
+	const mdGenerator = new ReportJsonToMd(path.join(context.extensionPath, 'report'));
+	mdGenerator.genMetricOverview();
+
 	vscode.window.registerTreeDataProvider("programCct", provider);
 	vscode.commands.registerCommand('programCct.refreshEntry', () => provider.refresh());
 	vscode.commands.registerCommand('programCct.openFile', (element: Dependency) => provider.open(element));
