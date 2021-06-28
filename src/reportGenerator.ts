@@ -28,7 +28,10 @@ export class ReportJsonToMd {
         let rate = metricOverviewInteger['rate'];
         let fraction = metricOverviewInteger['fraction'];
         this.reportMd.write('<details><summary>Total Integer Redundant Bytes: ' + rate +' % ( ' + fraction + ' )</summary><blockquote>' + os.EOL);
-        this.reportMd.write('xxx' + os.EOL);
+        for(let i = 0; i < threadNum ; i++) {
+            let threadData = metricOverviewInteger['Thread ' + i]['Total Integer Redundant Bytes'];
+            this.reportMd.write('Thread ' + i +': Total Integer Redundant Bytes: ' + threadData['rate'] + ' % (' + threadData['fraction'] + ') <a href="' + threadData['detail'] +'" title="detail">detail</a></br>');
+        }
         this.reportMd.write('</blockquote></details>' + os.EOL);
     }
 
@@ -36,7 +39,10 @@ export class ReportJsonToMd {
         let rate = metricOverviewFloatingPoint['rate'];
         let fraction = metricOverviewFloatingPoint['fraction'];
         this.reportMd.write('<details><summary>Total Floating Point Redundant Bytes: ' + rate +' % ( ' + fraction + ' )</summary><blockquote>' + os.EOL);
-        this.reportMd.write('xxx' + os.EOL);
+        for(let i = 0; i < threadNum ; i++) {
+            let threadData = metricOverviewFloatingPoint['Thread ' + i]['Total Floating Point Redundant Bytes'];
+            this.reportMd.write('Thread ' + i +': Total Floating Point Redundant Bytes: ' + threadData['rate'] + ' % (' + threadData['fraction'] + ') <a href="' + threadData['detail'] +'" title="detail">detail</a></br>');
+        }
         this.reportMd.write('</blockquote></details>' + os.EOL);
     }
 }
