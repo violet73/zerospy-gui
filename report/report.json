@@ -5,70 +5,65 @@
             "rate": 30,
             "fraction": "xx/xx",
             "Thread 0":{
-                "Total Integer Redundant Bytes":{
-                    "rate": 30,
-                    "fraction": "xx/xx",
-                    "detail": "file:///abspath"
-                }
+                "rate": 30,
+                "fraction": "xx/xx",
+                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0CCDetail.md"
             },
             "Thread 1":{
-                "Total Integer Redundant Bytes":{
-                    "rate": 40,
-                    "fraction": "xx/xx",
-                    "detail": "file:///abspath"
-                }
+                "rate": 40,
+                "fraction": "xx/xx",
+                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread1CCDetail.md"
             },
             "Thread 2":{
-                "Total Integer Redundant Bytes":{
-                    "rate": 50,
-                    "fraction": "xx/xx",
-                    "detail": "file:///abspath"
-                }
+                "rate": 50,
+                "fraction": "xx/xx",
+                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread2CCDetail.md"
             }
         },
         "Total Floating Point Redundant Bytes":{
             "rate": 30,
             "fraction": "xx/xx",
             "Thread 0":{
-                "Total Floating Point Redundant Bytes":{
-                    "rate": 30,
-                    "fraction": "xx/xx",
-                    "detail": "file:///abspath"
-                }
+                "rate": 30,
+                "fraction": "xx/xx",
+                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0DCDetail.md"
             },
             "Thread 1":{
-                "Total Floating Point Redundant Bytes":{
-                    "rate": 30,
-                    "fraction": "xx/xx",
-                    "detail": "file:///abspath"
-                }
+                "rate": 30,
+                "fraction": "xx/xx",
+                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0DCDetail.md"
             },
             "Thread 2":{
-                "Total Floating Point Redundant Bytes":{
-                    "rate": 30,
-                    "fraction": "xx/xx",
-                    "detail": "file:///abspath"
-                }
+                "rate": 30,
+                "fraction": "xx/xx",
+                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0DCDetail.md"
             }
         }
     },
     "Thread 0 Detailed Metrics":{
         "Code Centric":{
-            "Integer Redundant Info":{
-                "Num":1,
-                "0":{
+            "Integer Redundant Info":[
+                {
                     "Redundancy":"xx",
-                    "local redundancy":"xx%(xx Bytes / xx Bytes)",
-                    "Fully Redundant Zero":" xx% (xxx / xxx)",
-                    "Redmap":"[0]... [<AccessLen>]",
+                    "local redundancy":"40.5465%(xx Bytes / xx Bytes)",
+                    "Fully Redundant Zero":" 40.5465% (xxx / xxx)",
+                    "Redmap":"[0]... [AccessLen]",
+                    "CCT Info":{
+
+                    }
+                },
+                {
+                    "Redundancy":"xx",
+                    "local redundancy":"20.56156%(xx Bytes / xx Bytes)",
+                    "Fully Redundant Zero":" 20.56156% (xxx / xxx)",
+                    "Redmap":"[0]... [AccessLen]",
                     "CCT Info":{
 
                     }
                 }
-            },
-            "Floating Point Redundant Info":{
-                "Num":1,
-                "0":{
+            ],
+            "Floating Point Redundant Info":[
+                {
                     "Redundancy":"xx",
                     "local redundancy":"xx%(xx Zeros / xx Reads)",
                     "Fully Redundant Zero": "xx% (xxx / xxx)",
@@ -79,30 +74,28 @@
 
                     }
                 }
-            }
+            ]
         },
         "Data Centric":{
         }
     },
     "Thread 1 Detailed Metrics":{
         "Code Centric":{
-            "Integer Redundant Info":{
-                "Num":1,
-                "0":{
+            "Integer Redundant Info":[
+                {
                     "Redundancy":"xx",
-                    "local redundancy":"xx%(xx Bytes / xx Bytes)",
+                    "local redundancy":"xx% (xx Bytes / xx Bytes)",
                     "Fully Redundant Zero":" xx% (xxx / xxx)",
-                    "Redmap":"[0]... [<AccessLen>]",
+                    "Redmap":"[0]... [AccessLen]",
                     "CCT Info":{
 
                     }
                 }
-            },
-            "Floating Point Redundant Info":{
-                "Num":1,
-                "0":{
+            ],
+            "Floating Point Redundant Info":[
+                {
                     "Redundancy":"xx",
-                    "local redundancy":"xx%(xx Zeros / xx Reads)",
+                    "local redundancy":"xx% (xx Zeros / xx Reads)",
                     "Fully Redundant Zero": "xx% (xxx / xxx)",
                     "Redmap: [mantissa | exponent | sign]":"XX | XX XX | XX XX XX XX XX XX XX",
                     "AccessLen":8,
@@ -111,30 +104,28 @@
 
                     }
                 }
-            }
+            ]
         },
         "Data Centric":{
         }
     },
     "Thread 2 Detailed Metrics":{
         "Code Centric":{
-            "Integer Redundant Info":{
-                "Num":1,
-                "0":{
-                    "Redundancy":"xx",
-                    "local redundancy":"xx%(xx Bytes / xx Bytes)",
+            "Integer Redundant Info":[
+                {
+                    "Redundancy":"100",
+                    "local redundancy":"xx% (xx Bytes / xx Bytes)",
                     "Fully Redundant Zero":" xx% (xxx / xxx)",
-                    "Redmap":"[0]... [<AccessLen>]",
+                    "Redmap":"[0]... [AccessLen]",
                     "CCT Info":{
 
                     }
                 }
-            },
-            "Floating Point Redundant Info":{
-                "Num":1,
-                "0":{
+            ],
+            "Floating Point Redundant Info":[
+                {
                     "Redundancy":"xx",
-                    "local redundancy":"xx%(xx Zeros / xx Reads)",
+                    "local redundancy":"xx% (xx Zeros / xx Reads)",
                     "Fully Redundant Zero": "xx% (xxx / xxx)",
                     "Redmap: [mantissa | exponent | sign]":"XX | XX XX | XX XX XX XX XX XX XX",
                     "AccessLen":8,
@@ -143,7 +134,7 @@
 
                     }
                 }
-            }
+            ]
         },
         "Data Centric":{
         }

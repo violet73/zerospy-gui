@@ -35,7 +35,7 @@ export class ReportJsonToMd {
         let fraction = metricOverviewInteger['fraction'];
         reportOverview.write('<details><summary>Total Integer Redundant Bytes: ' + rate +' % ( ' + fraction + ' )</summary><blockquote>' + os.EOL);
         for(let i = 0; i < threadNum ; i++) {
-            let threadData = metricOverviewInteger['Thread ' + i]['Total Integer Redundant Bytes'];
+            let threadData = metricOverviewInteger['Thread ' + i];
             reportOverview.write('Thread ' + i +': Total Integer Redundant Bytes: ' + threadData['rate'] + ' % (' + threadData['fraction'] + ') <a href="' + threadData['detail'] +'" title="detail">detail</a></br>');
         }
         reportOverview.write('</blockquote></details>' + os.EOL);
@@ -46,7 +46,7 @@ export class ReportJsonToMd {
         let fraction = metricOverviewFloatingPoint['fraction'];
         reportOverview.write('<details><summary>Total Floating Point Redundant Bytes: ' + rate +' % ( ' + fraction + ' )</summary><blockquote>' + os.EOL);
         for(let i = 0; i < threadNum ; i++) {
-            let threadData = metricOverviewFloatingPoint['Thread ' + i]['Total Floating Point Redundant Bytes'];
+            let threadData = metricOverviewFloatingPoint['Thread ' + i];
             reportOverview.write('Thread ' + i +': Total Floating Point Redundant Bytes: ' + threadData['rate'] + ' % (' + threadData['fraction'] + ') <a href="' + threadData['detail'] +'" title="detail">detail</a></br>');
         }
         reportOverview.write('</blockquote></details>' + os.EOL);
@@ -60,7 +60,7 @@ export class ReportJsonToMd {
 
     genThreadDetailedCodeCentricMetrics(threadNum:number) {
         for(let i = 0; i < threadNum ; i++) {
-            let reportDetail = fs.createWriteStream('C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread' + i + 'Detail.md', {
+            let reportDetail = fs.createWriteStream('C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread' + i + 'CCDetail.md', {
                 flags:'w'
             });
             reportDetail.write('## Thread ' + i + ' Detailed Metrics (Code Centric)' + os.EOL);
@@ -72,13 +72,38 @@ export class ReportJsonToMd {
         }
     }
 
-    genCodeCentricIntegerInfo(integerInfo:Dict, reportDetail:fs.WriteStream) {
-        let infoNum = integerInfo['Num'];
-        reportDetail.write('<details><summary>Integer Redundant Info</summary><blockquote>' + os.EOL);
+    genCodeCentricIntegerInfo(integerInfo:[], reportDetail:fs.WriteStream) {
+        let infoNum = integerInfo.length;
+        reportDetail.write('<details><summary><font size="5" color="black">Integer Redundant Info</font></summary><blockquote>' + os.EOL);
+        for(let i = 0 ; i < infoNum ; i++) {
+            let threadInfo = integerInfo[i];
+            reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
+            reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>');
+            let num = String(threadInfo['Fully Redundant Zero']).match(/\d+\.\d+/g);
+            if(num !== null && parseInt(num[0]) > this.threshold) {
+                reportDetail.write('<p><code><ins>💡 The Fully Redundant Zero is high. There may be optimization </br>opportunities to optimize with <strong>if/else</strong> statements to skip the </br>redundant memory loads and corresponding computations.</ins></code></p>');
+            }
+            reportDetail.write('<li><font color="black">Redmap:' + threadInfo['Redmap'] + '</font></li></ul>');
+            reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
+            reportDetail.write('</blockquote></details>' + os.EOL);
+            reportDetail.write('</blockquote></details>' + os.EOL);
+        }
+        reportDetail.write('</blockquote></details>' + os.EOL);
     }
 
-    genCodeCentricFloatingPoint(floatingPointInfo:Dict, reportDetail:fs.WriteStream) {
-        
+    genCodeCentricFloatingPoint(floatingPointInfo:[], reportDetail:fs.WriteStream) {
+        let infoNum = floatingPointInfo.length;
+        reportDetail.write('<details><summary><font size="5" color="black">Floating Point Redundant Info</font></summary><blockquote>' + os.EOL);
+        for(let i = 0 ; i < infoNum ; i++) {
+            let threadInfo = floatingPointInfo[i];
+            reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
+            reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>\
+                                    <li><font color="black">Redmap: [mantissa | exponent | sign]:' + threadInfo['Redmap: [mantissa | exponent | sign]'] + '</font></li></ul>');
+            reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
+            reportDetail.write('</blockquote></details>' + os.EOL);
+            reportDetail.write('</blockquote></details>' + os.EOL);
+        }
+        reportDetail.write('</blockquote></details>' + os.EOL);
     }
 
     genThreadDetailedDataCentricMetrics(threadNum:number) {
