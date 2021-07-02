@@ -77,6 +77,59 @@
             ]
         },
         "Data Centric":{
+            "Integer Redundant Info":
+            {
+                "static":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ],
+                "dynamic":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ]
+
+            },
+            "Floating Point Redundant Info":
+                {
+                    "static":
+                    [
+                        {
+                            "Redundancy":"100",
+                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                            "Fully Redundant Zero":" xx% (xxx / xxx)",
+                            "Redmap":"[0]... [AccessLen]",
+                            "CCT Info":{
+                            }
+                        }
+                    ],
+                    "dynamic":
+                    [
+                        {
+                            "Redundancy":"100",
+                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                            "Fully Redundant Zero":" xx% (xxx / xxx)",
+                            "Redmap":"[0]... [AccessLen]",
+                            "CCT Info":{
+                            }
+                        }
+                    ]
+                }
+            
+        
         }
     },
     "Thread 1 Detailed Metrics":{
@@ -107,11 +160,64 @@
             ]
         },
         "Data Centric":{
+            "Integer Redundant Info":
+            {
+                "static":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ],
+                "dynamic":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ]
+
+            },
+            "Floating Point Redundant Info":
+                {
+                    "static":
+                    [
+                        {
+                            "Redundancy":"100",
+                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                            "Fully Redundant Zero":" xx% (xxx / xxx)",
+                            "Redmap":"[0]... [AccessLen]",
+                            "CCT Info":{
+                            }
+                        }
+                    ],
+                    "dynamic":
+                    [
+                        {
+                            "Redundancy":"100",
+                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                            "Fully Redundant Zero":" xx% (xxx / xxx)",
+                            "Redmap":"[0]... [AccessLen]",
+                            "CCT Info":{
+                            }
+                        }
+                    ]
+                }
+            
         }
     },
     "Thread 2 Detailed Metrics":{
         "Code Centric":{
-            "Integer Redundant Info":[
+            "Integer Redundant Info":
+            [
                 {
                     "Redundancy":"100",
                     "local redundancy":"xx% (xx Bytes / xx Bytes)",
@@ -137,6 +243,58 @@
             ]
         },
         "Data Centric":{
+            "Integer Redundant Info":
+            {
+                "static":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ],
+                "dynamic":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ]
+
+            },
+            "Floating Point Redundant Info":
+            {
+                "static":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ],
+                "dynamic":
+                [
+                    {
+                        "Redundancy":"100",
+                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
+                        "Fully Redundant Zero":" xx% (xxx / xxx)",
+                        "Redmap":"[0]... [AccessLen]",
+                        "CCT Info":{
+                        }
+                    }
+                ]
+            }
+            
         }
     }
 }
