@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 import { openStdin } from 'process';
+import { dirname } from 'path';
 type Dict = {[k:string]: any};
 const lklpath: string = "C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/";
 const yxypath:string = "/Users/yxy/Desktop/GUI/zerospy-gui/report/";
@@ -16,8 +17,7 @@ export class ReportJsonToMd {
         this.threshold = threshold === undefined ? 30:threshold;
         console.log(this.threshold);
         console.log(reportRoot);
-        
-        this.reportPath = reportRoot.substring(0,reportRoot.substring(0,reportRoot.length - 5).lastIndexOf('/')) + '/report/';
+        this.reportPath = dirname(reportRoot) + path.sep + 'report' + path.sep;
         if (!fs.existsSync(this.reportPath)) {
             fs.mkdirSync(this.reportPath);
         }
