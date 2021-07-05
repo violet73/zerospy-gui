@@ -95,6 +95,7 @@ export class ReportJsonToMd {
             }
             reportDetail.write('<li><font color="black">Redmap:' + threadInfo['Redmap'] + '</font></li></ul>');
             reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
+            reportDetail.write(String(threadInfo['CCT Info']).replace(/</g,"&lt;").replace(/>/g, "&gt;").replace(/\n/g, "</br>"));
             reportDetail.write('</blockquote></details>' + os.EOL);
             reportDetail.write('</blockquote></details>' + os.EOL);
         }
@@ -110,6 +111,7 @@ export class ReportJsonToMd {
             reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>\
                                     <li><font color="black">Redmap: [mantissa | exponent | sign]:' + threadInfo['Redmap: [mantissa | exponent | sign]'] + '</font></li></ul>');
             reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
+            reportDetail.write(String(threadInfo['CCT Info']).replace(/</g,"&lt;").replace(/>/g, "&gt;").replace(/\n/g, "</br>"));
             reportDetail.write('</blockquote></details>' + os.EOL);
             reportDetail.write('</blockquote></details>' + os.EOL);
         }
