@@ -15,13 +15,13 @@ export class ReportJsonToMd {
 
     constructor(private reportRoot: string, threshold: number) {
         this.threshold = threshold === undefined ? 30:threshold;
-        console.log(this.threshold);
-        console.log(reportRoot);
+        // console.log(this.threshold);
+        // console.log(reportRoot);
         this.reportPath = dirname(reportRoot) + path.sep + 'report' + path.sep;
         if (!fs.existsSync(this.reportPath)) {
             fs.mkdirSync(this.reportPath);
         }
-        console.log(this.reportPath);
+        // console.log(this.reportPath);
         
         this.reportJson = JSON.parse(fs.readFileSync(reportRoot, 'utf-8'));
 	}
@@ -87,9 +87,13 @@ export class ReportJsonToMd {
         reportDetail.write('<details><summary><font size="5" color="black">Integer Redundant Info</font></summary><blockquote>' + os.EOL);
         for(let i = 0 ; i < infoNum ; i++) {
             let threadInfo = integerInfo[i];
-            reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
-            reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>');
             let num = String(threadInfo['Fully Redundant Zero']).match(/\d+\.\d+/g);
+            if(num !== null && parseInt(num[0]) > this.threshold) {
+                reportDetail.write('<details><summary><font size="3" color="black">💡 [' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
+            } else {
+                reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
+            }
+            reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>');
             if(num !== null && parseInt(num[0]) > this.threshold) {
                 reportDetail.write('<p><code><ins>💡 The Fully Redundant Zero is high. There may be optimization </br>opportunities to optimize with <strong>if/else</strong> statements to skip the </br>redundant memory loads and corresponding computations.</ins></code></p>');
             }
@@ -120,7 +124,7 @@ export class ReportJsonToMd {
 
     genThreadDetailedDataCentricMetrics(threadNum:number) {
         for(let i = 0; i < threadNum ; i++) {
-            let reportDetail = fs.createWriteStream(this.reportPath + i + 'DCDetail.md', {
+            let reportDetail = fs.createWriteStream(this.reportPath + 'thread' + i + 'DCDetail.md', {
                 flags:'w'
             });
             reportDetail.write('## Thread ' + i + ' Detailed Metrics (Data Centric)' + os.EOL);
@@ -132,63 +136,45 @@ export class ReportJsonToMd {
         }
     }
     
-    genDataCentricIntegerInfo(integerInfo:Dict, reportDetail:fs.WriteStream) {
-        // let infoNum = integerInfo.length;
-        // let staticInfo = [];
-        // let dynamicInfo = [];
-        // integerInfo.forEach(ele=>)
+    genDataCentricIntegerInfo(integerInfo:[], reportDetail:fs.WriteStream) {
+        let infoNum = integerInfo.length;
         reportDetail.write('<details><summary><font size="5" color="black">Integer Redundant Info</font></summary><blockquote>' + os.EOL);
-        this.genDataCentricStaticInfo(integerInfo['static'],reportDetail);
-        this.genDataCentricStaticInfo(integerInfo['dynamic'],reportDetail);
-        // for(let i = 0 ; i < infoNum ; i++) {
-        //     let threadInfo = integerInfo[i];
-        //     reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
-        //     reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>');
-        //     let num = String(threadInfo['Fully Redundant Zero']).match(/\d+\.\d+/g);
-        //     if(num !== null && parseInt(num[0]) > this.threshold) {
-        //         reportDetail.write('<p><code><ins>💡 The Fully Redundant Zero is high. There may be optimization </br>opportunities to optimize with <strong>if/else</strong> statements to skip the </br>redundant memory loads and corresponding computations.</ins></code></p>');
-        //     }
-        //     reportDetail.write('<li><font color="black">Redmap:' + threadInfo['Redmap'] + '</font></li></ul>');
-        //     reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
-        //     reportDetail.write('</blockquote></details>' + os.EOL);
-        //     reportDetail.write('</blockquote></details>' + os.EOL);
-        // }
+        for(let i = 0 ; i < infoNum ; i++) {
+            let threadInfo = integerInfo[i];
+            reportDetail.write('<details><summary><font size="3" color="black">' + threadInfo['name'] + '</font></summary><blockquote>');
+            if(threadInfo['name'] === 'Dynamic Object') {
+                reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
+                // reportDetail.write(String(threadInfo['CCT Info']).replace(/</g,"&lt;").replace(/>/g, "&gt;").replace(/\n/g, "</br>"));
+                reportDetail.write('</blockquote></details>' + os.EOL);
+            }
+            reportDetail.write('<ul><li><font color="black">[' + threadInfo['rate'] + '%] Redundancy: ' + threadInfo['Redundancy'] + ' </font></li>');
+            reportDetail.write('<li><font color="black">Data Size: ' + threadInfo['Data Size'] + '</font></li>');
+            reportDetail.write('<li><font color="black">Not Accessed Data: ' + threadInfo['Not Accessed Data'] + '</font></li>');
+            reportDetail.write('<li><font color="black">Redundant Data: ' + threadInfo['Redundant Data'] + '</font></li>');
+            reportDetail.write('<li><font color="black">Redmap: ' + threadInfo['Redmap'] + '</font></li></ul>');
+            reportDetail.write('</blockquote></details>' + os.EOL);
+        }
         reportDetail.write('</blockquote></details>' + os.EOL);
     }
 
     genDataCentricFloatingPoint(floatingPointInfo:[], reportDetail:fs.WriteStream) {
-        return;
         let infoNum = floatingPointInfo.length;
         reportDetail.write('<details><summary><font size="5" color="black">Floating Point Redundant Info</font></summary><blockquote>' + os.EOL);
         for(let i = 0 ; i < infoNum ; i++) {
             let threadInfo = floatingPointInfo[i];
-            reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
-            reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>\
-                                    <li><font color="black">Redmap: [mantissa | exponent | sign]:' + threadInfo['Redmap: [mantissa | exponent | sign]'] + '</font></li></ul>');
-            reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
-            reportDetail.write('</blockquote></details>' + os.EOL);
+            reportDetail.write('<details><summary><font size="3" color="black">' + threadInfo['name'] + '</font></summary><blockquote>');
+            if(threadInfo['name'] === 'Dynamic Object') {
+                reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
+                // reportDetail.write(String(threadInfo['CCT Info']).replace(/</g,"&lt;").replace(/>/g, "&gt;").replace(/\n/g, "</br>"));
+                reportDetail.write('</blockquote></details>' + os.EOL);
+            }
+            reportDetail.write('<ul><li><font color="black">[' + threadInfo['rate'] + '%] Redundancy: ' + threadInfo['Redundancy'] + ' </font></li>');
+            reportDetail.write('<li><font color="black">Data Size: ' + threadInfo['Data Size'] + '</font></li>');
+            reportDetail.write('<li><font color="black">Not Accessed Data: ' + threadInfo['Not Accessed Data'] + '</font></li>');
+            reportDetail.write('<li><font color="black">Redundant Data: ' + threadInfo['Redundant Data'] + '</font></li>');
+            reportDetail.write('<li><font color="black">Redmap: ' + threadInfo['Redmap'] + '</font></li></ul>');
             reportDetail.write('</blockquote></details>' + os.EOL);
         }
         reportDetail.write('</blockquote></details>' + os.EOL);
-    }
-
-    genDataCentricStaticInfo(staticInfo:[], reportDetail:fs.WriteStream) {
-        reportDetail.write('<details><summary><font size="5" color="black">Static</font></summary><blockquote>' + os.EOL);
-
-        let infoNum = staticInfo.length;
-
-        for(let i = 0 ; i < infoNum ; i++) {
-            let threadInfo = staticInfo[i];
-            reportDetail.write('<details><summary><font size="3" color="black">[' + threadInfo['Redundancy'] + '%] Redundancy, with local redundancy ' + threadInfo['local redundancy'] + '</font></summary><blockquote>');
-            reportDetail.write('<ul><li><font color="black">Fully Redundant Zero:' + threadInfo['Fully Redundant Zero'] + '</font></li>');
-            let num = String(threadInfo['Fully Redundant Zero']).match(/\d+\.\d+/g);
-            if(num !== null && parseInt(num[0]) > this.threshold) {
-                reportDetail.write('<p><code><ins>💡 The Fully Redundant Zero is high. There may be optimization </br>opportunities to optimize with <strong>if/else</strong> statements to skip the </br>redundant memory loads and corresponding computations.</ins></code></p>');
-            }
-            reportDetail.write('<li><font color="black">Redmap:' + threadInfo['Redmap'] + '</font></li></ul>');
-            reportDetail.write('<details><summary><font color="black">CCT Info:</font></summary><blockquote>');
-            reportDetail.write('</blockquote></details>' + os.EOL);
-            reportDetail.write('</blockquote></details>' + os.EOL);
-        }
     }
 }

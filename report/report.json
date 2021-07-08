@@ -7,17 +7,17 @@
             "Thread 0":{
                 "rate": 30,
                 "fraction": "xx/xx",
-                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0CCDetail.md"
+                "detail": "./thread0CCDetail.md"
             },
             "Thread 1":{
                 "rate": 40,
                 "fraction": "xx/xx",
-                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread1CCDetail.md"
+                "detail": "./thread1CCDetail.md"
             },
             "Thread 2":{
                 "rate": 50,
                 "fraction": "xx/xx",
-                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread2CCDetail.md"
+                "detail": "./thread2CCDetail.md"
             }
         },
         "Total Floating Point Redundant Bytes":{
@@ -26,17 +26,17 @@
             "Thread 0":{
                 "rate": 30,
                 "fraction": "xx/xx",
-                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0DCDetail.md"
+                "detail": "./thread0DCDetail.md"
             },
             "Thread 1":{
                 "rate": 30,
                 "fraction": "xx/xx",
-                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0DCDetail.md"
+                "detail": "./thread0DCDetail.md"
             },
             "Thread 2":{
                 "rate": 30,
                 "fraction": "xx/xx",
-                "detail": "file:///C:/Users/雷克伦/desktop/三下/vscode-cct/zerospy-gui/report/thread0DCDetail.md"
+                "detail": "./thread0DCDetail.md"
             }
         }
     },
@@ -77,59 +77,53 @@
             ]
         },
         "Data Centric":{
-            "Integer Redundant Info":
-            {
-                "static":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ],
-                "dynamic":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ]
-
-            },
-            "Floating Point Redundant Info":
+            "Integer Redundant Info":[
                 {
-                    "static":
-                    [
-                        {
-                            "Redundancy":"100",
-                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                            "Fully Redundant Zero":" xx% (xxx / xxx)",
-                            "Redmap":"[0]... [AccessLen]",
-                            "CCT Info":{
-                            }
-                        }
-                    ],
-                    "dynamic":
-                    [
-                        {
-                            "Redundancy":"100",
-                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                            "Fully Redundant Zero":" xx% (xxx / xxx)",
-                            "Redmap":"[0]... [AccessLen]",
-                            "CCT Info":{
-                            }
-                        }
-                    ]
+                    "name":"Static Object: xxx...",
+                    "rate":"xx",
+                    "Redundancy":"xx Bytes",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Bytes)",
+                    "Redundant Data":"xx% (xxx Bytes)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                },
+                {
+                    "name": "Dynamic Object",
+                    "CCT Info":{
+
+                    },
+                    "rate":"xx",
+                    "Redundancy":"xx Bytes",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Bytes)",
+                    "Redundant Data":"xx% (xxx Bytes)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                }
+            ],
+            "Floating Point Redundant Info":[
+                {
+                    "name":"Static Object: xxx...",
+                    "rate":"xx",
+                    "[xx%] Redundancy":"xx Zeros",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Elements)",
+                    "Redundant Data":"xx% (xxx Elements)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                },
+                {
+                    "name": "Dynamic Object",
+                    "CCT Info":{
+
+                    },
+                    "rate":"xx",
+                    "[xx%] Redundancy":"xx Zeros",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Elements)",
+                    "Redundant Data":"xx% (xxx Elements)",
+                    "Redmap":"[0] ... [Data Size/128]"
                 }
             
-        
+            ]
         }
     },
     "Thread 1 Detailed Metrics":{
@@ -160,58 +154,53 @@
             ]
         },
         "Data Centric":{
-            "Integer Redundant Info":
-            {
-                "static":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ],
-                "dynamic":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ]
-
-            },
-            "Floating Point Redundant Info":
+            "Integer Redundant Info":[
                 {
-                    "static":
-                    [
-                        {
-                            "Redundancy":"100",
-                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                            "Fully Redundant Zero":" xx% (xxx / xxx)",
-                            "Redmap":"[0]... [AccessLen]",
-                            "CCT Info":{
-                            }
-                        }
-                    ],
-                    "dynamic":
-                    [
-                        {
-                            "Redundancy":"100",
-                            "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                            "Fully Redundant Zero":" xx% (xxx / xxx)",
-                            "Redmap":"[0]... [AccessLen]",
-                            "CCT Info":{
-                            }
-                        }
-                    ]
+                    "name":"Static Object: xxx...",
+                    "rate":"xx",
+                    "Redundancy":"xx Bytes",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Bytes)",
+                    "Redundant Data":"xx% (xxx Bytes)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                },
+                {
+                    "name": "Dynamic Object",
+                    "CCT Info":{
+
+                    },
+                    "rate":"xx",
+                    "Redundancy":"xx Bytes",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Bytes)",
+                    "Redundant Data":"xx% (xxx Bytes)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                }
+            ],
+            "Floating Point Redundant Info":[
+                {
+                    "name":"Static Object: xxx...",
+                    "rate":"xx",
+                    "[xx%] Redundancy":"xx Zeros",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Elements)",
+                    "Redundant Data":"xx% (xxx Elements)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                },
+                {
+                    "name": "Dynamic Object",
+                    "CCT Info":{
+
+                    },
+                    "rate":"xx",
+                    "[xx%] Redundancy":"xx Zeros",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Elements)",
+                    "Redundant Data":"xx% (xxx Elements)",
+                    "Redmap":"[0] ... [Data Size/128]"
                 }
             
+            ]
         }
     },
     "Thread 2 Detailed Metrics":{
@@ -243,58 +232,53 @@
             ]
         },
         "Data Centric":{
-            "Integer Redundant Info":
-            {
-                "static":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ],
-                "dynamic":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ]
+            "Integer Redundant Info":[
+                {
+                    "name":"Static Object: xxx...",
+                    "rate":"xx",
+                    "Redundancy":"xx Bytes",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Bytes)",
+                    "Redundant Data":"xx% (xxx Bytes)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                },
+                {
+                    "name": "Dynamic Object",
+                    "CCT Info":{
 
-            },
-            "Floating Point Redundant Info":
-            {
-                "static":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ],
-                "dynamic":
-                [
-                    {
-                        "Redundancy":"100",
-                        "local redundancy":"xx% (xx Bytes / xx Bytes)",
-                        "Fully Redundant Zero":" xx% (xxx / xxx)",
-                        "Redmap":"[0]... [AccessLen]",
-                        "CCT Info":{
-                        }
-                    }
-                ]
-            }
+                    },
+                    "rate":"xx",
+                    "Redundancy":"xx Bytes",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Bytes)",
+                    "Redundant Data":"xx% (xxx Bytes)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                }
+            ],
+            "Floating Point Redundant Info":[
+                {
+                    "name":"Static Object: xxx...",
+                    "rate":"xx",
+                    "[xx%] Redundancy":"xx Zeros",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Elements)",
+                    "Redundant Data":"xx% (xxx Elements)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                },
+                {
+                    "name": "Dynamic Object",
+                    "CCT Info":{
+
+                    },
+                    "rate":"xx",
+                    "[xx%] Redundancy":"xx Zeros",
+                    "Data Size":"xxx GB/MB/KB/B",
+                    "Not Accessed Data":"xx% (xxx Elements)",
+                    "Redundant Data":"xx% (xxx Elements)",
+                    "Redmap":"[0] ... [Data Size/128]"
+                }
             
+            ]
         }
     }
 }

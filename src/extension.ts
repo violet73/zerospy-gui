@@ -10,8 +10,7 @@ import {ReportJsonToMd} from './reportGenerator';
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
 	const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
-	// let threshold = await inputRedRateThreshold();
-	let threshold = 30;
+	let threshold = await inputRedRateThreshold();
 
 
 	vscode.window.registerTreeDataProvider("programCct", provider);
