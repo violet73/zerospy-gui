@@ -11,13 +11,23 @@ import {ReportJsonToMd} from './reportGenerator';
 export async function activate(context: vscode.ExtensionContext) {
 	const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
 	let threshold = await inputRedRateThreshold();
-	const mdGenerator = new ReportJsonToMd(path.join(context.extensionPath, 'report'), threshold);
-	mdGenerator.genMetricOverview();
-	mdGenerator.genThreadDetailedMetrics();
+
 
 	vscode.window.registerTreeDataProvider("programCct", provider);
 	vscode.commands.registerCommand('programCct.refreshEntry', () => provider.refresh());
 	vscode.commands.registerCommand('programCct.openFile', (element: Dependency) => provider.open(element));
+	vscode.commands.registerCommand('genReport.generateReport',() => {
+		// uri会给出命令执行时选择的路径
+		// 如果右键点击文件夹，这里就是文件夹的路径
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			const uri = editor.document.uri;
+			const mdGenerator = new ReportJsonToMd(uri?.fsPath, threshold);
+			mdGenerator.genMetricOverview();
+			mdGenerator.genThreadDetailedMetrics();
+		}
+		// const dirPath = "adfads";
+	});
 
 	let collection = vscode.languages.createDiagnosticCollection('warning high Fully Redundant Zero');
 

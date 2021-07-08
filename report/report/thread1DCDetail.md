@@ -1,0 +1,11 @@
+## Thread 1 Detailed Metrics (Data Centric)
+<details><summary><font size="5" color="black">Integer Redundant Info</font></summary><blockquote>
+<details><summary><font size="3" color="black">Static Object: xxx...</font></summary><blockquote><ul><li><font color="black">[xx%] Redundancy: xx Bytes </font></li><li><font color="black">Data Size: xxx GB/MB/KB/B</font></li><li><font color="black">Not Accessed Data: xx% (xxx Bytes)</font></li><li><font color="black">Redundant Data: xx% (xxx Bytes)</font></li><li><font color="black">Redmap: [0] ... [Data Size/128]</font></li></ul></blockquote></details>
+<details><summary><font size="3" color="black">Dynamic Object</font></summary><blockquote><details><summary><font color="black">CCT Info:</font></summary><blockquote></blockquote></details>
+<ul><li><font color="black">[xx%] Redundancy: xx Bytes </font></li><li><font color="black">Data Size: xxx GB/MB/KB/B</font></li><li><font color="black">Not Accessed Data: xx% (xxx Bytes)</font></li><li><font color="black">Redundant Data: xx% (xxx Bytes)</font></li><li><font color="black">Redmap: [0] ... [Data Size/128]</font></li></ul></blockquote></details>
+</blockquote></details>
+<details><summary><font size="5" color="black">Floating Point Redundant Info</font></summary><blockquote>
+<details><summary><font size="3" color="black">Static Object: xxx...</font></summary><blockquote><ul><li><font color="black">[xx%] Redundancy: undefined </font></li><li><font color="black">Data Size: xxx GB/MB/KB/B</font></li><li><font color="black">Not Accessed Data: xx% (xxx Elements)</font></li><li><font color="black">Redundant Data: xx% (xxx Elements)</font></li><li><font color="black">Redmap: [0] ... [Data Size/128]</font></li></ul></blockquote></details>
+<details><summary><font size="3" color="black">Dynamic Object</font></summary><blockquote><details><summary><font color="black">CCT Info:</font></summary><blockquote></blockquote></details>
+<ul><li><font color="black">[xx%] Redundancy: undefined </font></li><li><font color="black">Data Size: xxx GB/MB/KB/B</font></li><li><font color="black">Not Accessed Data: xx% (xxx Elements)</font></li><li><font color="black">Redundant Data: xx% (xxx Elements)</font></li><li><font color="black">Redmap: [0] ... [Data Size/128]</font></li></ul></blockquote></details>
+</blockquote></details>
