@@ -24,7 +24,6 @@ export async function activate(context: vscode.ExtensionContext) {
 			const uri = editor.document.uri;
 			const mdGenerator = new ReportJsonToMd(uri?.fsPath, threshold);
 			mdGenerator.genMetricOverview();
-			mdGenerator.genThreadDetailedMetrics();
 		}
 		// const dirPath = "adfads";
 	});
