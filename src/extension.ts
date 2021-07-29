@@ -9,13 +9,13 @@ import {ReportJsonToMd} from './reportGenerator';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
-	const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
+	// const provider = new CctNodeProvider(path.join(context.extensionPath, 'cct'));
 	let threshold = await inputRedRateThreshold();
 
 
-	vscode.window.registerTreeDataProvider("programCct", provider);
-	vscode.commands.registerCommand('programCct.refreshEntry', () => provider.refresh());
-	vscode.commands.registerCommand('programCct.openFile', (element: Dependency) => provider.open(element));
+	// vscode.window.registerTreeDataProvider("programCct", provider);
+	// vscode.commands.registerCommand('programCct.refreshEntry', () => provider.refresh());
+	// vscode.commands.registerCommand('programCct.openFile', (element: Dependency) => provider.open(element));
 	vscode.commands.registerCommand('genReport.generateReport',() => {
 		// uri会给出命令执行时选择的路径
 		// 如果右键点击文件夹，这里就是文件夹的路径
