@@ -47,7 +47,7 @@
                     "Redundancy":"xx",
                     "local redundancy":"40.5465%(xx Bytes / xx Bytes)",
                     "Fully Redundant Zero":" 40.5465% (xxx / xxx)",
-                    "Redmap":"[0]... [AccessLen]",
+                    "Redmap":"[0]XX XX XX XX [4]",
                     "CCT Info":{
 
                     }
@@ -56,7 +56,7 @@
                     "Redundancy":"xx",
                     "local redundancy":"20.56156%(xx Bytes / xx Bytes)",
                     "Fully Redundant Zero":" 20.56156% (xxx / xxx)",
-                    "Redmap":"[0]... [AccessLen]",
+                    "Redmap":"[0]XX 00 00 00 [4]",
                     "CCT Info":{
 
                     }
@@ -133,7 +133,7 @@
                     "Redundancy":"xx",
                     "local redundancy":"xx% (xx Bytes / xx Bytes)",
                     "Fully Redundant Zero":" xx% (xxx / xxx)",
-                    "Redmap":"[0]... [AccessLen]",
+                    "Redmap":"[0]XX 00 00 00 [4]",
                     "CCT Info":{
 
                     }
@@ -211,7 +211,7 @@
                     "Redundancy":"100",
                     "local redundancy":"xx% (xx Bytes / xx Bytes)",
                     "Fully Redundant Zero":" xx% (xxx / xxx)",
-                    "Redmap":"[0]... [AccessLen]",
+                    "Redmap":"[0]XX XX 00 00 [4]",
                     "CCT Info":{
 
                     }
